@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class StatusView extends StatelessWidget {
@@ -21,8 +22,7 @@ class StatusView extends StatelessWidget {
       required this.centerImageUrl,
       this.strokeWidth = 4,
       this.seenColor = Colors.grey,
-      this.unSeenColor = Colors.blue})
-      : assert(centerImageUrl != null, "Please provide centerImageUrl");
+      this.unSeenColor = Colors.blue});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class StatusView extends StatelessWidget {
           ),
           CircleAvatar(
             radius: radius - padding,
-            backgroundImage: NetworkImage(centerImageUrl),
+            backgroundImage: CachedNetworkImageProvider(centerImageUrl),
           ),
         ],
       ),
